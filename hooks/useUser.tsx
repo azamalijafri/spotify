@@ -22,7 +22,7 @@ export const MyUserContextProvider = (props: Props) => {
 
   const user = useSupaUser();
   const accessToken = session?.access_token ?? null;
-  const [isLoadingData, setIsLoadingData] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
 
@@ -31,8 +31,8 @@ export const MyUserContextProvider = (props: Props) => {
     supabase.from("subscriptions").select("*,prices(*,produtcs(*))").in("status", ["trialing", "active"]).single();
 
   useEffect(() => {
-    if (user && !isLoadingData && !userDetails && !subscription) {
-      setIsLoadingData(true);
+    if (user && !isLoading && !userDetails && !subscription) {
+      setIsLoading(true);
 
       Promise.allSettled([getUserDetails(), getSubscriptions()]).then((res) => {
         const userDetailPromise = res[0];
@@ -46,9 +46,9 @@ export const MyUserContextProvider = (props: Props) => {
           setSubscription(subscriptionPromise.value.data as Subscription);
         }
 
-        setIsLoadingData(false);
+        setIsLoading(false);
       });
-    } else if (!user && !isLoadingUser && !isLoadingData) {
+    } else if (!user && !isLoadingUser && !isLoading) {
       setSubscription(null);
       setUserDetails(null);
     }
@@ -58,7 +58,7 @@ export const MyUserContextProvider = (props: Props) => {
     accessToken,
     user,
     userDetails,
-    isLoading: isLoadingUser || isLoadingData,
+    isLoading: isLoadingUser || isLoading,
     subscription,
   };
 
