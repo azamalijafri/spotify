@@ -75,8 +75,8 @@ const UploadModal = () => {
         user_id: user.id,
         title: values.title,
         author: values.author,
-        image_path: imageData,
-        song_path: songData,
+        image_path: imageData.path,
+        song_path: songData.path,
       });
 
       if (supabaseError) {
