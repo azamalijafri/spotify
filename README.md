@@ -34,4 +34,4 @@ To run this project, you will need to add the following environment variables to
 
 `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-`SUPERBASE_SERVICE_ROLE_KEY`
+`SUPABASE_SERVICE_ROLE_KEY`
