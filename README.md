@@ -1,17 +1,17 @@
-# Spotify Web Clone
+# Spotify Clone
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/azam-ali-jafri/spotify-web-clone.git
+  git clone https://github.com/azam-ali-jafri/spotify-clone.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd spotify-web-clone
+  cd spotify-clone
 ```
 
 Install dependencies
