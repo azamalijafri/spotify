@@ -1,7 +1,11 @@
 import { Price } from "@/types";
 
 export const getUrl = () => {
-  let url = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000";
+  let url =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    "https://spotify-clone-by-azam.vercel.app/" ??
+    "http://localhost:3000";
 
   url = url.includes("http") ? url : `http://${url}`;
   url = url.charAt(url.length - 1) === "/" ? url : `${url}/`;
